@@ -6,9 +6,10 @@ var computer = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var wins = 0;
 var loses = 0;
 var guessesLeft = 9;
-var alreadyGuessed;
+var alreadyGuessed = [];
 
 
+showText()
 
 
 
@@ -25,24 +26,16 @@ document.onkeyup = function (event) {
     // Determines which key was pressed.
     var userGuess = event.key;
 
-    if (userGuess === computerGuesses) {
-        wins++;
-        
-        document.getElementById("win").innerHTML = wins;
+    //if statement that adds a point if the statements equal/dont equal each other 
 
+    if (userGuess === computerGuesses) {
+
+        wins++;
     }
 
     else if (userGuess !== computerGuesses) {
-        loses++ && guessesLeft--;
-    
-        document.getElementById("loss").innerHTML = loses;
-
-        document.getElementById("remaining-guesses").innerHTML = guessesLeft;
-
-    }
-
-
-
+        guessesLeft--;
+    }    
     console.log(wins);
 
     console.log(loses);
@@ -50,3 +43,24 @@ document.onkeyup = function (event) {
     console.log(guessesLeft);
 
 };
+
+
+function reset() {
+
+    guessesLeft = 0;
+    alreadyGuessed = [];
+    computerGuesses = computer[Math.floor(Math.random() * computer.length)];
+    console.log(computerGuesses);
+
+}
+
+function showText(){
+
+    document.getElementById("win").innerHTML = wins;
+
+    document.getElementById("loss").innerHTML = loses;
+
+    document.getElementById("remaining-guesses").innerHTML = guessesLeft;
+
+    document.getElementById("already-used").innerHTML = alreadyGuessed;
+}
