@@ -1,6 +1,6 @@
 # psychic-game
 
-<bold>About The Game: </bold
+<bold>About The Game: </bold>
 
 This Game will have the user guess a letter and see if they can match the computer to win a point.
 
